@@ -51,3 +51,9 @@ export const getTotalCartQuantity = createSelector([getCart], cart =>
 export const getTotalCartPrice = createSelector([getCart], cart =>
 	cart.reduce((sum, item) => sum + item.totalPrice, 0),
 );
+
+export const getCurrentQuantityById = id =>
+	createSelector(
+		[getCart],
+		cart => cart.find(item => item.pizzaId === id)?.quantity ?? 0,
+	);
