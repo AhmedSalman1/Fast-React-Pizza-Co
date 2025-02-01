@@ -42,12 +42,12 @@ export const {
 
 export default cartSlice.reducer;
 
-const selectCart = state => state.cart.cart;
+export const getCart = state => state.cart.cart;
 
-export const getTotalCartQuantity = createSelector([selectCart], cart =>
+export const getTotalCartQuantity = createSelector([getCart], cart =>
 	cart.reduce((sum, item) => sum + item.quantity, 0),
 );
 
-export const getTotalCartPrice = createSelector([selectCart], cart =>
+export const getTotalCartPrice = createSelector([getCart], cart =>
 	cart.reduce((sum, item) => sum + item.totalPrice, 0),
 );
